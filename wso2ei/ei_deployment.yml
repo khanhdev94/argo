@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ei-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ei
+  template:
+    metadata:
+      labels:
+        app: ei
+    spec:
+      containers:
+      - name: ei
+        image: wso2/wso2ei-integrator:latest
+        ports:
+        - containerPort: 8280
+        - containerPort: 8243
+        - containerPort: 9443
+        
